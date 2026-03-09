@@ -48,7 +48,7 @@ public class Customer {
     }
 
     public boolean withdraw(double amount) {
-        if (amount <= getBalance() && getBalance() > 0) {
+        if (amount <= balance && balance > 0) {
             this.balance -= amount;
             return true;
         }else {
