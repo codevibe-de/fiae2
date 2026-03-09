@@ -1,24 +1,21 @@
 package de.codevibe;
 
-//lege Klasse "Product" an (mit id und name und price) und lese einen Test aus, wie
-// "123;Pangalaktischer Donnergurgler;12.99" der die Teile extrahiert und eine Produktinstanz anlegt
-
-import org.apache.commons.lang3.StringUtils;
-
 public class Product {
 
-    private int id;
-    private String name;
-    private double price;
-    String line = "123;Pangalaktischer Donnergurgler;12.99";
+    private final long id;
+    private final String name;
 
-    public Product(int id, String name, double price) {
+
+    public Product(long id, String name) {
         this.id = id;
         this.name = name;
-        this.price = price;
     }
 
+    public long getId() {
+        return id;
+    }
 
-
+    public String getName() {
+        return name;
+    }
 }
-
