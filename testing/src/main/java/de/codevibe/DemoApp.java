@@ -19,10 +19,10 @@ public class DemoApp {
 
         String prod = "56;Silberelfenohren;850";
         String[] prodItems = StringUtils.split(prod, ";");
-        Product p = new Product(prodItems[0],  prodItems[1], prodItems[2]);
+        Product1 p = new Product1(prodItems[0],  prodItems[1], prodItems[2]);
         System.out.println(p);
         String prod1 = "12;Mandragora;26";
-        Product p1 = new Product(prod1);
+        Product1 p1 = new Product1(prod1);
         System.out.println(p1);
 
         String text = "Gold-TrX";
@@ -38,17 +38,17 @@ public class DemoApp {
 
 }
 
-class Product {
+class Product1 {
     private int id;
     private String name;
     private double price;
 
-    public Product(String id, String name, String price) {
+    public Product1(String id, String name, String price) {
         this.id = Integer.parseInt(id);
         this.name = name;
         this.price = Double.parseDouble(price);
     }
-    public Product(String p){
+    public Product1(String p){
         String[] split = p.split(";");
         this.id = Integer.parseInt(split[0]);
         this.name = split[1];
