@@ -1,66 +1,61 @@
 package de.codevibe;
 
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import org.apache.commons.text.CaseUtils;
 
 public class DemoApp {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+        String s = "Ich bin ein sehr laaaaanger Text!!!";
+        String s2 = "Ich bin ein java Fan";
+        String iban = "DE1001984453422";
+        String k = StringUtils.abbreviate(s, 13);
+        System.out.println(k);
+        // Wie viele Leerzeichen hat der Text?
+        System.out.println(StringUtils.countMatches(s, " "));
+        // String als CamelCase Abfolge speichern.
+        System.out.println(CaseUtils.toCamelCase(s2, false, ' '));
+        System.out.println("Startet die IBAN " + iban + " mit DE?" + StringUtils.startsWithIgnoreCase(iban, "DE"));
 
-        System.out.println(DemoApp.isIBAN(input));
+        String prod = "56;Silberelfenohren;850";
+        String[] prodItems = StringUtils.split(prod, ";");
+        Product p = new Product(prodItems[0],  prodItems[1], prodItems[2]);
+        System.out.println(p);
+        String prod1 = "12;Mandragora;26";
+        Product p1 = new Product(prod1);
+        System.out.println(p1);
+
+        String text = "Gold-TrX";
+        System.out.println(strukturBestimung(text));
 
     }
 
-    public static int leerzeichenCounter(String input) {
-        int counter = 0;
-        String space = " ";
-        for (char c : input.toCharArray()) {
-            if (c == space.charAt(0)) {
-                counter++;
-            }
-        }
-        return counter;
+    private static boolean strukturBestimung(String text) {
+
+        if (text.length() < 11 && text.length() > 0 && text.endsWith("X") && text.contains("-")) return true;
+        else return false;
     }
 
-    public static boolean isIBAN(String input) {
-        char[] chars = input.toCharArray();
-        String s = chars[0] + "" + chars[1];
-        if (s.equals("DE")) {
-            return true;
-        }
-        return false;
+}
+
+class Product {
+    private int id;
+    private String name;
+    private double price;
+
+    public Product(String id, String name, String price) {
+        this.id = Integer.parseInt(id);
+        this.name = name;
+        this.price = Double.parseDouble(price);
+    }
+    public Product(String p){
+        String[] split = p.split(";");
+        this.id = Integer.parseInt(split[0]);
+        this.name = split[1];
+        this.price = Double.parseDouble(split[2]);
     }
 
-    public static String toCamelCase(String input) {
-        String space = " ";
-        String output = "";
-        boolean upperCase = false;
-
-        for (char c : input.toCharArray()) {
-            if (c == space.charAt(0)) {
-                upperCase = true;
-            }
-
-            if (c != space.charAt(0) && upperCase) {
-                output += String.valueOf(c).toUpperCase();
-                upperCase = false;
-
-            }
-//            else if (c != space.charAt(0) && output.isEmpty()) {
-//                output += String.valueOf(c).toUpperCase();
-//            }
-            else if (c != space.charAt(0)) {
-                output += String.valueOf(c).toLowerCase();
-            }
-        }
-        return output;
+    public String toString(){
+        return "ProduktID: " + id + ", Name: " + name + ", Preis: " + price;
     }
-
-
-
 }
