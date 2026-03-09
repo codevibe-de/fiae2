@@ -16,7 +16,7 @@ public class Customer {
     }
 
     public long getId() {
-        return 0;
+        return this.id;
     }
 
     public String getFirstName() {
@@ -32,24 +32,28 @@ public class Customer {
     }
 
     public String getFullName() {
-        return firstName + lastName;
+        return firstName + " " + lastName;
     }
 
     public boolean isAdult() {
-        return age > 18;
+        return age >= 18;
     }
 
     public void deposit(double amount) {
+        this.balance += amount;
     }
 
     public double getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public boolean withdraw(double amount) {
-        if (amount > balance) {
+        if (amount <= getBalance() && getBalance() > 0) {
+            this.balance -= amount;
+            return true;
+        }else {
             return false;
         }
-        return true;
     }
+
 }
