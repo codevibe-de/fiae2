@@ -1,8 +1,8 @@
-package de.codevibe;
+package test.java.de.codevibe;
 
-import de.codevibe.library.Book;
-import de.codevibe.library.BookNotAvailableException;
-import de.codevibe.library.Library;
+import main.java.de.codevibe.library.Book;
+import main.java.de.codevibe.library.BookNotAvailableException;
+import main.java.de.codevibe.library.Library;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

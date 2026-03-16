@@ -1,5 +1,7 @@
-package de.codevibe.library;
+package test.java.de.codevibe.library;
 
+import main.java.de.codevibe.library.Library;
+import main.java.de.codevibe.library.Book;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
