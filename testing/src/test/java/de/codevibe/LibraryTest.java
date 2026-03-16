@@ -1,6 +1,7 @@
 package de.codevibe;
 
 import de.codevibe.library.Book;
+import de.codevibe.library.BookNotAvailableException;
 import de.codevibe.library.Library;
 import org.junit.jupiter.api.*;
 
@@ -42,11 +43,22 @@ public class LibraryTest {
 
     @Test
     @Order(3)
-    void isAvailable() {
+    void isAvailable__succeeds() {
         assertTrue(library.isAvailable("123"));
         assertTrue(library.isAvailable("456"));
         assertTrue(library.isAvailable("789"));
-        assertFalse(library.isAvailable("111"));
+    }
+
+    @Test
+    @Order(3)
+    void isAvailable__failsForMissingBook() {
+        try {
+            library.isAvailable("111");
+            Assertions.fail("We should have raised an exception");
+        }
+        catch (BookNotAvailableException e) {
+            // empty by design -- we expect an exception to be thrown
+        }
     }
 
 
@@ -100,9 +112,10 @@ public class LibraryTest {
         assertEquals(0, library.getBorrowedCount());
     }
 
+
     @Test
     @Order(10)
-    void addSameBook() {
+    void addBook__failsSinceBookAlreadyExists() {
         library.addBook(book1);
         assertEquals(4, library.getBookCount());
     }
