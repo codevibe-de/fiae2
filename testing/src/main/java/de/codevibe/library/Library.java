@@ -1,4 +1,4 @@
-package de.codevibe.library;
+package main.java.de.codevibe.library;
 
 import java.util.*;
 
@@ -9,6 +9,7 @@ public class Library {
     private final Set<String> borrowedIsbns = new HashSet<>();
 
     public void addBook(Book book) {
+        bookExists(book);
         books.put(book.getIsbn(), book);
     }
 
@@ -27,6 +28,9 @@ public class Library {
 
     public boolean bookExists(String isbn) {
         return books.containsKey(isbn);
+    }
+    public void bookExists(Book book) {
+        if(books.containsKey(book.getIsbn())) throw new BookAlreadyExistsException("Book already exists");
     }
     public boolean isAvailable(String isbn) {
         checkBookExists(isbn);

@@ -1,4 +1,4 @@
-package de.codevibe.library;
+package main.java.de.codevibe.library;
 
 public class BookNotAvailableException extends RuntimeException {
 
