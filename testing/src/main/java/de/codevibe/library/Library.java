@@ -5,11 +5,13 @@ import java.util.*;
 public class Library {
 
     private final Map<String, Book> books = new HashMap<>();
+
     private final Set<String> borrowedIsbns = new HashSet<>();
 
     public void addBook(Book book) {
         books.put(book.getIsbn(), book);
     }
+
 
     public void borrowBook(String isbn) {
         if (!books.containsKey(isbn)) {
@@ -25,6 +27,7 @@ public class Library {
 
 
     public boolean isAvailable(String isbn) {
+        checkBookExists(isbn);
         return !borrowedIsbns.contains(isbn);
     }
 
@@ -43,4 +46,13 @@ public class Library {
         return books.values();
     }
 
+    /**
+     * Checks if a book with the given ISBN does exist in this library.
+     * @throws BookNotAvailableException if it doesn't exist
+     */
+    private void checkBookExists(String isbn) {
+        if (!books.containsKey(isbn)) {
+            throw new BookNotAvailableException("Sorry, book with ISBN " + isbn + " doesn't exist");
+        }
+    }
 }
