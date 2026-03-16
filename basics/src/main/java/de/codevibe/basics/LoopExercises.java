@@ -5,7 +5,7 @@ package de.codevibe.basics;
  * Fill in the method bodies so that all unit tests pass.
  */
 public class LoopExercises {
-
+        // TODO
     /**
      * Returns the sum of all integers from 1 to n (inclusive).
      * Returns 0 for n <= 0.

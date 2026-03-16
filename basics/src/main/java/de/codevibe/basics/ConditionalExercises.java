@@ -1,5 +1,7 @@
 package de.codevibe.basics;
 
+import java.util.Locale;
+
 /**
  * Exercises for IF/ELSE and SWITCH statements.
  * Fill in the method bodies so that all unit tests pass.
@@ -13,8 +15,15 @@ public class ConditionalExercises {
      * otherwise the number as a String.
      */
     public String fizzBuzz(int n) {
-        // TODO
-        return null;
+        if (n % 3 == 0 && n % 5 == 0) {
+            return "FizzBuzz";
+        }  else if (n % 3 == 0) {
+            return "Fizz";
+        } else if (n % 5 == 0) {
+            return "Buzz";
+        } else  {
+            return "" + n;
+        }
     }
 
     /**
@@ -27,8 +36,19 @@ public class ConditionalExercises {
      * Return null for scores outside 0-100.
      */
     public String letterGrade(int score) {
-        // TODO
-        return null;
+        if (score < 0 || score > 100){
+            return null;
+        } else if (score >= 90){
+            return "A";
+        }  else if (score >= 80){
+            return "B";
+        } else if (score >= 70){
+            return "C";
+        }  else if (score >= 60){
+            return "D";
+        }  else {
+            return "F";
+        }
     }
 
     /**
@@ -38,8 +58,11 @@ public class ConditionalExercises {
      * Use a switch statement.
      */
     public String dayType(String day) {
-        // TODO
-        return null;
+        return switch (day.toLowerCase()) {
+            case "saturday", "sunday" -> "Weekend";
+            case "monday", "tuesday", "wednesday", "thursday", "friday" -> "Weekday";
+            default -> null;
+        };
     }
 
     /**
@@ -52,7 +75,12 @@ public class ConditionalExercises {
      * Use a switch statement.
      */
     public String season(int month) {
-        // TODO
-        return null;
+        return switch (month) {
+            case 12, 1, 2 -> "Winter";
+            case 3, 4, 5 -> "Spring";
+            case 6, 7, 8 -> "Summer";
+            case 9, 10, 11 -> "Autumn";
+            default -> null;
+        };
     }
 }
