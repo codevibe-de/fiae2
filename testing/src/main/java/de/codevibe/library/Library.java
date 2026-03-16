@@ -9,6 +9,9 @@ public class Library {
     private final Set<String> borrowedIsbns = new HashSet<>();
 
     public void addBook(Book book) {
+        if (books.containsKey(book.getIsbn())) {
+            throw new BookNotAvailableException("Book with ISBN " + book.getIsbn() + " already exists");
+        }
         books.put(book.getIsbn(), book);
     }
 

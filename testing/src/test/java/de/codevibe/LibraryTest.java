@@ -116,8 +116,14 @@ public class LibraryTest {
     @Test
     @Order(10)
     void addBook__failsSinceBookAlreadyExists() {
-        library.addBook(book1);
-        assertEquals(4, library.getBookCount());
+        try {
+            library.addBook(book1);
+            Assertions.fail("We should have raised an exception 2");
+        }
+        catch (BookNotAvailableException e) {
+            // empty by design -- we expect an exception to be thrown
+        }
+
     }
 
 }
