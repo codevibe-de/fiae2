@@ -23,7 +23,9 @@ public class Library {
         borrowedIsbns.remove(isbn);
     }
 
-
+    public boolean bookExists(String isbn) {
+        return books.containsKey(isbn);
+    }
     public boolean isAvailable(String isbn) {
         return !borrowedIsbns.contains(isbn);
     }
