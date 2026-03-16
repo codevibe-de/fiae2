@@ -29,6 +29,7 @@ public class Book {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
+
         return Objects.equals(title, book.title);
     }
 
