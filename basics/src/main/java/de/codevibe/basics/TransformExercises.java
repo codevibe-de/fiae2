@@ -13,8 +13,17 @@ public class TransformExercises {
      * E.g. "hello world" -> "Hello World"
      */
     public String capitalizeWords(String sentence) {
-        // TODO
-        return null;
+        if (sentence == null || sentence.isEmpty()) {
+            return sentence;
+        }
+        String lower = sentence.toLowerCase();
+
+        for (int i = 0; i < lower.length(); i++) {
+            if (lower.charAt(i) == ' ') {
+                lower = sentence.substring(0, i).toUpperCase() + sentence.substring(i);
+            }
+        }
+        return lower;
     }
 
     /**
