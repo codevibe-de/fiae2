@@ -5,14 +5,19 @@ package de.codevibe.basics;
  * Fill in the method bodies so that all unit tests pass.
  */
 public class LoopExercises {
-        // TODO
     /**
      * Returns the sum of all integers from 1 to n (inclusive).
      * Returns 0 for n <= 0.
      */
     public int sumUpTo(int n) {
-        // TODO
-        return 0;
+        int sum = 0;
+        if  (n <= 0) {
+            return 0;
+        }
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        return sum;
     }
 
     /**
@@ -21,8 +26,15 @@ public class LoopExercises {
      * Assume n >= 0.
      */
     public long factorial(int n) {
-        // TODO
-        return 0;
+        if (n < 0) {
+            return 0;
+        }
+        else if (n == 0 || n == 1) {
+            return 1;
+        }
+        else {
+            return n * factorial(n-1);
+        }
     }
 
     /**
@@ -31,8 +43,18 @@ public class LoopExercises {
      * Returns 0 for a null or empty string.
      */
     public int countVowels(String text) {
-        // TODO
-        return 0;
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+        int count = 0;
+        String lower = text.toLowerCase();
+        for (int i = 0; i < lower.length(); i++) {
+            char c = lower.charAt(i);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o'  || c == 'u') {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -41,8 +63,14 @@ public class LoopExercises {
      * Returns an empty array for null input.
      */
     public int[] reverseArray(int[] array) {
-        // TODO
-        return new int[0];
+        if (array == null || array.length == 0) {
+            return new int[0];
+        }
+        int[] reversedArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversedArray[i] = array[array.length - 1 - i];
+        }
+        return reversedArray;
     }
 
     /**
@@ -50,7 +78,15 @@ public class LoopExercises {
      * Assume the array is non-null and non-empty.
      */
     public int findMax(int[] array) {
-        // TODO
-        return 0;
+        if  (array == null || array.length == 0) {
+            return 0;
+        }
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
     }
 }
