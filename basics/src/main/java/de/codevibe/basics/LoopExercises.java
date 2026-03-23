@@ -11,8 +11,11 @@ public class LoopExercises {
      * Returns 0 for n <= 0.
      */
     public int sumUpTo(int n) {
-        // TODO
-        return 0;
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum = sum + (i + 1);
+        }
+        return sum;
     }
 
     /**
@@ -21,8 +24,16 @@ public class LoopExercises {
      * Assume n >= 0.
      */
     public long factorial(int n) {
-        // TODO
-        return 0;
+        if (n == 0) {
+            return 1;
+        }
+
+        long prod = n;
+
+        for (int i = 1; i < n; i++) {
+            prod = prod * i;
+        }
+        return prod;
     }
 
     /**
@@ -31,8 +42,19 @@ public class LoopExercises {
      * Returns 0 for a null or empty string.
      */
     public int countVowels(String text) {
-        // TODO
-        return 0;
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+
+        int sumOfVowels = 0;
+
+        for (int i = 0; i < text.length(); i++) {
+            char currentChar = text.toLowerCase().charAt(i); 
+            if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u') {
+                sumOfVowels++;
+            }
+        }
+        return sumOfVowels;
     }
 
     /**
@@ -41,8 +63,15 @@ public class LoopExercises {
      * Returns an empty array for null input.
      */
     public int[] reverseArray(int[] array) {
-        // TODO
-        return new int[0];
+        if (array == null) {
+            return new int[0];
+        }
+        int[] revArray = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            revArray [i] = array[array.length - 1 - i];
+        }
+        return revArray;
     }
 
     /**
@@ -50,7 +79,13 @@ public class LoopExercises {
      * Assume the array is non-null and non-empty.
      */
     public int findMax(int[] array) {
-        // TODO
-        return 0;
+        int maxNum = array[0];
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maxNum) {
+                maxNum = array[i];
+            }
+        }
+        return maxNum;
     }
 }

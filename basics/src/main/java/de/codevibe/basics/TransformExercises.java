@@ -1,5 +1,7 @@
 package de.codevibe.basics;
 
+import java.util.Arrays;
+
 /**
  * Exercises for transforming input values (string operations, number parsing).
  * Fill in the method bodies so that all unit tests pass.
@@ -13,8 +15,15 @@ public class TransformExercises {
      * E.g. "hello world" -> "Hello World"
      */
     public String capitalizeWords(String sentence) {
-        // TODO
-        return null;
+        String[] splittedStrings = sentence.toLowerCase().split(" ");
+        StringBuilder sb = new StringBuilder();
+
+        for (String s : splittedStrings) {
+            char[] chars = s.toCharArray();
+            chars[0] = Character.toUpperCase(chars[0]);
+            sb.append(new String(chars)).append(" ");
+        }
+        return sb.toString().trim();
     }
 
     /**
@@ -23,8 +32,13 @@ public class TransformExercises {
      * Throw a NumberFormatException (unchecked) if the string is not a valid integer.
      */
     public int parseAndDouble(String value) {
-        // TODO
-        return 0;
+        if (value == null || value.isEmpty()) {
+            return 0;
+        }
+        int parsed = Integer.valueOf(value);
+
+        parsed = parsed * 2;
+        return parsed;
     }
 
     /**
@@ -33,8 +47,15 @@ public class TransformExercises {
      * E.g. "Racecar" -> true, "A man a plan a canal Panama" -> true
      */
     public boolean isPalindrome(String text) {
-        // TODO
-        return false;
+        String modString = text.toLowerCase().trim().replace(" ", "");
+
+        for (int i = 0; i < modString.length() / 2; i++) {
+            if (modString.charAt(i) != modString.charAt(modString.length() - 1 - i)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -44,8 +65,19 @@ public class TransformExercises {
      * Returns an empty string for a null or empty array.
      */
     public String joinWithSeparator(String[] words, String separator) {
-        // TODO
-        return null;
+        if (words == null || words.length == 0) {
+            return "";
+        }
+
+        StringBuilder sb = new StringBuilder(words[0]);
+
+        for (int i = 1 ; i < words.length; i++) {
+            sb.append(separator).append(words[i]);
+        }
+
+        String result = sb.toString();
+
+        return result;
     }
 
     /**
@@ -54,7 +86,18 @@ public class TransformExercises {
      * Returns 0 for a null or empty string.
      */
     public int countChar(String text, char c) {
-        // TODO
-        return 0;
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+        int count = 0;
+
+        char[] chars = text.toCharArray();
+
+        for (int i = 0; i < text.length(); i++) {
+            if (chars[i] == c) {
+                count++;
+            }
+        }
+        return count;
     }
 }

@@ -14,7 +14,15 @@ public class ConditionalExercises {
      */
     public String fizzBuzz(int n) {
         // TODO
-        return null;
+        if (n % 15 == 0) {
+            return "FizzBuzz";
+        }
+        else if (n % 3 == 0) {
+            return "Fizz";
+        } else if (n % 5 == 0) {
+            return "Buzz";
+        }
+        return String.valueOf(n);
     }
 
     /**
@@ -28,6 +36,21 @@ public class ConditionalExercises {
      */
     public String letterGrade(int score) {
         // TODO
+        if (score >= 0 && score <= 100) {
+            if (score >= 90) {
+                return "A";
+            } else if (score >= 80) {
+                return "B";
+            } else if (score >= 70) {
+                return "C";
+            } else if (score >= 60) {
+                return "D";
+            } else if (score >= 0) {
+                return "F";
+            }            
+        } else {
+            return null;
+        }
         return null;
     }
 
@@ -39,7 +62,14 @@ public class ConditionalExercises {
      */
     public String dayType(String day) {
         // TODO
-        return null;
+        switch (day) {
+            case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
+                return "Weekday";
+            case "Saturday", "Sunday":
+                return "Weekend";
+            default:
+                return null;
+        }
     }
 
     /**
@@ -53,6 +83,17 @@ public class ConditionalExercises {
      */
     public String season(int month) {
         // TODO
-        return null;
+        switch (month) {
+            case 12, 1, 2:
+                return "Winter";
+            case 3, 4, 5:
+                return "Spring";
+            case 6, 7, 8:
+                return "Summer";
+            case 9, 10, 11:
+                return "Autumn";
+            default:
+                return null;
+        }
     }
 }
