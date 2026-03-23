@@ -20,6 +20,7 @@
         <module>patterns</module>
         <module>testing</module>
         <module>datastructures</module>
+        <module>io</module>
     </modules>
 
 </project>
