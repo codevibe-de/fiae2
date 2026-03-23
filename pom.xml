@@ -19,6 +19,7 @@
         <module>javafx</module>
         <module>patterns</module>
         <module>testing</module>
+        <module>datastructures</module>
     </modules>
 
 </project>
