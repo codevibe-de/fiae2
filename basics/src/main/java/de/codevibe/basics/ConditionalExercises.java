@@ -14,7 +14,7 @@ public class ConditionalExercises {
      */
     public String fizzBuzz(int n) {
         // TODO
-        return null;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -28,7 +28,7 @@ public class ConditionalExercises {
      */
     public String letterGrade(int score) {
         // TODO
-        return null;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -39,7 +39,7 @@ public class ConditionalExercises {
      */
     public String dayType(String day) {
         // TODO
-        return null;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -53,6 +53,6 @@ public class ConditionalExercises {
      */
     public String season(int month) {
         // TODO
-        return null;
+        throw new RuntimeException("not implemented");
     }
 }
