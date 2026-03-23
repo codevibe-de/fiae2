@@ -17,13 +17,19 @@ public class TransformExercises {
             return sentence;
         }
         String lower = sentence.toLowerCase();
+        StringBuilder sb = new StringBuilder(lower.length());
 
-        for (int i = 0; i < lower.length(); i++) {
-            if (lower.charAt(i) == ' ') {
-                lower = sentence.substring(0, i).toUpperCase() + sentence.substring(i);
+        sb.append(Character.toUpperCase(lower.charAt(0)));
+
+        for (int i = 1; i < lower.length(); i++) {
+            char c = lower.charAt(i);
+            if (lower.charAt(i - 1) == ' ') {
+                sb.append(Character.toUpperCase(c));
+            } else {
+                sb.append(c);
             }
         }
-        return lower;
+        return sb.toString();
     }
 
     /**
@@ -32,8 +38,8 @@ public class TransformExercises {
      * Throw a NumberFormatException (unchecked) if the string is not a valid integer.
      */
     public int parseAndDouble(String value) {
-        // TODO
-        return 0;
+        int intValue = Integer.parseInt(value);
+        return intValue * 2;
     }
 
     /**
@@ -42,8 +48,13 @@ public class TransformExercises {
      * E.g. "Racecar" -> true, "A man a plan a canal Panama" -> true
      */
     public boolean isPalindrome(String text) {
-        // TODO
-        return false;
+        if (text == null || text.isEmpty()) {
+            return false;
+        }
+        String textVergleich = text.toLowerCase().replaceAll(" ", "");
+        StringBuilder sb = new StringBuilder(textVergleich);
+        String reversed = sb.reverse().toString();
+        return textVergleich.equals(reversed);
     }
 
     /**
@@ -53,8 +64,15 @@ public class TransformExercises {
      * Returns an empty string for a null or empty array.
      */
     public String joinWithSeparator(String[] words, String separator) {
-        // TODO
-        return null;
+        if  (words == null || words.length == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder(words[0]);
+        for (int i = 1; i < words.length; i++) {
+            sb.append(separator).append(words[i]);
+        }
+        return sb.toString();
+
     }
 
     /**
@@ -63,7 +81,16 @@ public class TransformExercises {
      * Returns 0 for a null or empty string.
      */
     public int countChar(String text, char c) {
-        // TODO
-        return 0;
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+
     }
 }
