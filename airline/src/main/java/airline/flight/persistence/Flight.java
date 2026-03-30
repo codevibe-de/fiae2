@@ -22,6 +22,11 @@ public class Flight {
     }
 
 
+    public String getNumber() {
+        return number;
+    }
+
+
     /**
      * Adds a number of seats to this flight. Every 6th seat is at a window.
      *
