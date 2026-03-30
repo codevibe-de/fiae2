@@ -21,6 +21,7 @@
         <module>testing</module>
         <module>datastructures</module>
         <module>io</module>
+        <module>airline</module>
     </modules>
 
 </project>
