@@ -16,7 +16,7 @@ public class AirlineApp {
 
         // Enrico wants to fly business class with a view
         int seatNumber = fraToRome.getAvailableSeatNumber(SeatType.BUSINESS, true);
-        fraToRome.bookSeat(seatNumber, "PALLAZZO");
+        fraToRome.bookSeat(seatNumber, "PALAZZO");
 
         // Family Mustermann flies economy
         for (int n=0; n<4; n++) {
