@@ -7,10 +7,10 @@ import java.util.List;
 public class FlightService {
 
     // - Eingaben prüfen
-    // - Flight anlegen
     // - Flight speichern
-    public void createFlight() {
-
+    public void addFlight(Flight flight) {
+        // 1. Gibt es diesen Flug schon? => Fehler!
+        // 2. Flug speichern
     }
 
 
