@@ -1,13 +1,9 @@
-<<<<<<<< HEAD:testing/src/test/java/de/codevibe/LibraryTest.java
-package test.java.de.codevibe;
+package de.codevibe.library;
 
 import main.java.de.codevibe.library.Book;
 import main.java.de.codevibe.library.BookNotAvailableException;
 import main.java.de.codevibe.library.Library;
-========
-package de.codevibe.library;
 
->>>>>>>> origin/solution:testing/src/test/java/de/codevibe/library/LibraryTest.java
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

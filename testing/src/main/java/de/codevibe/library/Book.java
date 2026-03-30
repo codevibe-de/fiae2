@@ -1,4 +1,4 @@
-package main.java.de.codevibe.library;
+package de.codevibe.library;
 
 import java.util.Objects;
 
