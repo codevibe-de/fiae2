@@ -1,4 +1,4 @@
-package main.java.de.codevibe.library;
+package de.codevibe.library;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ public class Library {
 
     private final Map<String, Book> books = new HashMap<>();
     private final Set<String> borrowedIsbns = new HashSet<>();
-    long priceQueryCount = 0;
+    public long priceQueryCount = 0;
 
     public void addBook(Book book) {
         bookExists(book);
@@ -30,7 +30,7 @@ public class Library {
         return books.containsKey(isbn);
     }
     public void bookExists(Book book) {
-        if(books.containsKey(book.getIsbn())) throw new BookAlreadyExistsException("Book already exists");
+        if(books.containsKey(book.getIsbn())) throw new main.java.de.codevibe.library.BookAlreadyExistsException("Book already exists");
     }
     public boolean isAvailable(String isbn) {
         checkBookExists(isbn);

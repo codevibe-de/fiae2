@@ -1,4 +1,7 @@
 package de.codevibe.basics;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.CaseUtils;
+//import org.junit.platform.commons.util.StringUtils;
 
 /**
  * Exercises for transforming input values (string operations, number parsing).
@@ -13,8 +16,14 @@ public class TransformExercises {
      * E.g. "hello world" -> "Hello World"
      */
     public String capitalizeWords(String sentence) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        sentence = sentence.toLowerCase();
+//        return StringUtils.capitalize(sentence);
+        String[] splitter = sentence.split(" ");
+        String result = "";
+        for (String word : splitter) {
+            result += StringUtils.capitalize(word) + " ";
+        }
+        return result.trim();
     }
 
     /**
@@ -23,8 +32,8 @@ public class TransformExercises {
      * Throw a NumberFormatException (unchecked) if the string is not a valid integer.
      */
     public int parseAndDouble(String value) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        int number = Integer.parseInt(value);
+        return number * 2;
     }
 
     /**
@@ -33,8 +42,11 @@ public class TransformExercises {
      * E.g. "Racecar" -> true, "A man a plan a canal Panama" -> true
      */
     public boolean isPalindrome(String text) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        String txet = new StringBuilder(text.replaceAll(" ", "").toLowerCase()).reverse().toString();
+        System.out.println(txet);
+        text = text.replaceAll(" ", "").toLowerCase();
+        if (txet.equals(text)) return true;
+        return false;
     }
 
     /**
@@ -44,8 +56,9 @@ public class TransformExercises {
      * Returns an empty string for a null or empty array.
      */
     public String joinWithSeparator(String[] words, String separator) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        if (words == null || words.length == 0) return "";
+        StringBuilder sb = new StringBuilder();
+        return sb.append(StringUtils.join(words, separator)).toString();
     }
 
     /**
@@ -54,7 +67,7 @@ public class TransformExercises {
      * Returns 0 for a null or empty string.
      */
     public int countChar(String text, char c) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        if (StringUtils.isEmpty(text)) return 0;
+        return StringUtils.countMatches(text, c);
     }
 }
