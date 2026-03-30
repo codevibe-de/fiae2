@@ -27,7 +27,7 @@ public class FlightService {
     }
 
 
-    public void cancelFlight(Flight flight) {
+    public void cancelFlight(String flightNumber) {
     }
 
 }

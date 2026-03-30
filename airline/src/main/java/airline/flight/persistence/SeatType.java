@@ -1,4 +1,4 @@
-package airline.seat.persistence;
+package airline.flight.persistence;
 
 public enum SeatType {
     ECONOMY,

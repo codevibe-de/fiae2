@@ -1,7 +1,7 @@
 package airline;
 
 import airline.flight.persistence.Flight;
-import airline.seat.persistence.SeatType;
+import airline.flight.persistence.SeatType;
 
 public class AirlineApp {
 
