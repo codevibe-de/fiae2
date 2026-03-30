@@ -1,10 +1,18 @@
 package airline.flight.service;
 
 import airline.flight.persistence.Flight;
+import airline.flight.persistence.FlightJsonRepository;
 
 import java.util.List;
 
 public class FlightService {
+
+    private final FlightJsonRepository repository;
+
+    public FlightService(FlightJsonRepository repository) {
+        this.repository = repository;
+    }
+
 
     // - Eingaben prüfen
     // - Flight speichern
@@ -19,7 +27,7 @@ public class FlightService {
     }
 
 
-    public void cancelFlight(Flight flight) {
-
+    public void cancelFlight(String flightNumber) {
     }
+
 }
