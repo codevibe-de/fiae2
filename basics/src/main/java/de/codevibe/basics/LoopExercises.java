@@ -11,8 +11,11 @@ public class LoopExercises {
      * Returns 0 for n <= 0.
      */
     public int sumUpTo(int n) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        int sum=0;
+        for (int i = 0; i <= n; i++) {
+            sum+=i;
+        }
+        return sum;
     }
 
     /**
@@ -21,8 +24,11 @@ public class LoopExercises {
      * Assume n >= 0.
      */
     public long factorial(int n) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        long factorial=1;
+        for (int i = 1; i <= n; i++) {
+            factorial = factorial * i;
+        }
+        return factorial;
     }
 
     /**
@@ -31,8 +37,15 @@ public class LoopExercises {
      * Returns 0 for a null or empty string.
      */
     public int countVowels(String text) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        String vowels = "aeiouAEIOU";
+        int count = 0;
+
+        if(text == null) return 0;
+
+        for(char c : text.toCharArray()) {
+            if(vowels.contains(String.valueOf(c))) count++;
+        }
+        return count;
     }
 
     /**
@@ -41,8 +54,15 @@ public class LoopExercises {
      * Returns an empty array for null input.
      */
     public int[] reverseArray(int[] array) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        int[] reversedArray;
+        if (array == null) {
+            return new int[0];
+        };
+        reversedArray = new int[array.length];
+        for(int i = array.length-1; i >= 0; i--) {
+            reversedArray[array.length-1-i] = array[i];
+        }
+        return reversedArray;
     }
 
     /**
@@ -50,7 +70,12 @@ public class LoopExercises {
      * Assume the array is non-null and non-empty.
      */
     public int findMax(int[] array) {
-        // TODO
-        throw new RuntimeException("not implemented");
+        int max = array[0];
+        for(int num : array){
+            if(num > max){
+                max = num;
+            }
+        }
+        return max;
     }
 }

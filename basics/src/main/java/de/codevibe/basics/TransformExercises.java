@@ -13,7 +13,10 @@ public class TransformExercises {
      * E.g. "hello world" -> "Hello World"
      */
     public String capitalizeWords(String sentence) {
-        // TODO
+        String[] split = sentence.split(" ");
+        for(int i = 0; i < split.length; i++){
+
+        }
         throw new RuntimeException("not implemented");
     }
 
