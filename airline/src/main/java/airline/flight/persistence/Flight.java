@@ -1,8 +1,6 @@
 package airline.flight.persistence;
 
-import airline.seat.persistence.Seat;
-import airline.seat.service.SeatNotAvailableException;
-import airline.seat.persistence.SeatType;
+import airline.flight.service.SeatNotAvailableException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,21 +49,5 @@ public class Flight {
         return -1;
     }
 
-
-    /**
-     * Tries to book the given seat for a passenger. Throws SeatNotAvailableException if already taken
-     *
-     * @param seatNumber
-     * @param passengerLastName
-     * @throws SeatNotAvailableException
-     */
-    public void bookSeat(int seatNumber, String passengerLastName) {
-        // todo
-    }
-
-
-    public void printPassengerList() {
-
-    }
 
 }
