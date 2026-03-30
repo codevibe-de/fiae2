@@ -1,8 +1,5 @@
-package de.codevibe;
+package de.codevibe.library;
 
-import de.codevibe.library.Book;
-import de.codevibe.library.BookNotAvailableException;
-import de.codevibe.library.Library;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -118,6 +115,21 @@ public class LibraryTest {
     void addBook__failsSinceBookAlreadyExists() {
         library.addBook(book1);
         assertEquals(4, library.getBookCount());
+    }
+
+
+    @Test
+    void getBorrowPrice__blackBox() {
+        float actual = library.getBorrowPrice(18, false);
+        assertEquals(1.00f, actual);
+    }
+
+    @Test
+    void getBorrowPrice__queryCountWorks() {
+        long countBefore = library.priceQueryCount;
+        library.getBorrowPrice(18, true);
+        long countAfter = library.priceQueryCount;
+        assertEquals(countBefore + 1, countAfter);
     }
 
 }
