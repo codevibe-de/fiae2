@@ -1,0 +1,52 @@
+
+{
+  "flight": {
+    "flightNumber": "LH1234",
+    "airline": "Lufthansa",
+    "origin": "FRA",
+    "destination": "JFK",
+    "departureTime": "2026-04-01T10:30:00Z",
+    "arrivalTime": "2026-04-01T14:15:00Z"
+  },
+  "aircraft": {
+    "model": "Airbus A350-900",
+    "registration": "D-ABCD",
+    "seatCapacity": 293,
+    "seats": [
+      {
+        "seatNumber": "12A",
+        "class": "Economy",
+        "occupied": true,
+        "passengerId": "P001"
+      },
+      {
+        "seatNumber": "12B",
+        "class": "Economy",
+        "occupied": false,
+        "passengerId": null
+      },
+      {
+        "seatNumber": "1A",
+        "class": "Business",
+        "occupied": true,
+        "passengerId": "P002"
+      }
+    ]
+  },
+  "passengers": [
+    {
+      "id": "P001",
+      "firstName": "Anna",
+      "lastName": "Müller",
+      "ticketNumber": "TKT123456",
+      "baggageCount": 1
+    },
+    {
+      "id": "P002",
+      "firstName": "John",
+      "lastName": "Smith",
+      "ticketNumber": "TKT987654",
+      "baggageCount": 2
+    }
+  ]
+}

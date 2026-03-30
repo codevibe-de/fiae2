@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets;
 public class IoApp {
 
     public static void main(String[] args) {
-        String emoji = "A😊B";
-        System.out.println(emoji.length());
+        String emoji = "😊";
+//        System.out.println(emoji.length());
 
         try {
             InputStream inStream = new FileInputStream("blah.txt");
