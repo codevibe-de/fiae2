@@ -12,7 +12,7 @@ public class LoopExercises {
      */
     public int sumUpTo(int n) {
         // TODO
-        return 0;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -22,7 +22,7 @@ public class LoopExercises {
      */
     public long factorial(int n) {
         // TODO
-        return 0;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -32,7 +32,7 @@ public class LoopExercises {
      */
     public int countVowels(String text) {
         // TODO
-        return 0;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -42,7 +42,7 @@ public class LoopExercises {
      */
     public int[] reverseArray(int[] array) {
         // TODO
-        return new int[0];
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -51,6 +51,6 @@ public class LoopExercises {
      */
     public int findMax(int[] array) {
         // TODO
-        return 0;
+        throw new RuntimeException("not implemented");
     }
 }
