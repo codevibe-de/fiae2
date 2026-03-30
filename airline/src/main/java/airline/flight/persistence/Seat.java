@@ -4,14 +4,11 @@ public class Seat {
     private int number;
     private boolean atWindow;
     private SeatType type;
-    private boolean booked;
-    private String passangerLastName;
 
     public Seat(int number, boolean atWindow, SeatType type) {
         this.number = number;
         this.atWindow = atWindow;
         this.type = type;
-        this.booked = false;
     }
 
     public int getNumber() {
@@ -38,16 +35,4 @@ public class Seat {
         this.type = type;
     }
 
-    public boolean isBocked(){
-        return booked;
-    }
-
-    public String getPassangerLastName() {
-        return passangerLastName;
-    }
-
-    public void book(String lastName){
-        this.booked = true;
-        this.passangerLastName = lastName;
-    }
 }

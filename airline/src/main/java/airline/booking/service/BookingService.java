@@ -1,7 +1,10 @@
 package airline.booking.service;
 
+import airline.booking.persistence.Booking;
 import airline.booking.persistence.BookingJsonRepository;
 import airline.flight.service.SeatNotAvailableException;
+
+import java.util.List;
 
 public class BookingService {
 
@@ -17,12 +20,31 @@ public class BookingService {
      * @throws SeatNotAvailableException
      */
     public void bookSeat(String flightNumber, int seatNumber, String passengerLastName) {
-        // todo
+        List<Booking> existingBookings = repository.findByFlightNumber(flightNumber);
+        boolean alreadyBooked = false;
+        for (Booking b : existingBookings) {
+            if (b.getSeatNumber() == seatNumber) {
+                alreadyBooked = true;
+                break;
+            }
+        }
+        if (alreadyBooked) {
+            throw new SeatNotAvailableException(
+                    "Sitz " + seatNumber + " auf Flug " + flightNumber + " ist bereits belegt."
+            );
+        }
+        repository.save(new Booking(flightNumber, seatNumber, passengerLastName));
     }
 
 
     public void printPassengerList(String flightNumber) {
+        List<Booking> bookings = repository.findByFlightNumber(flightNumber);
+        System.out.println("=== Passagierliste für den Flug " + flightNumber + " ===");
+        for (Booking b : bookings) {
+            System.out.println("Sitz " + b.getSeatNumber() + " | " + b.getPassengerLastName());
+        }
 
     }
-
 }
+
+
