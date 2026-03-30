@@ -14,7 +14,7 @@ public class TransformExercises {
      */
     public String capitalizeWords(String sentence) {
         // TODO
-        return null;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -24,7 +24,7 @@ public class TransformExercises {
      */
     public int parseAndDouble(String value) {
         // TODO
-        return 0;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -34,7 +34,7 @@ public class TransformExercises {
      */
     public boolean isPalindrome(String text) {
         // TODO
-        return false;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -45,7 +45,7 @@ public class TransformExercises {
      */
     public String joinWithSeparator(String[] words, String separator) {
         // TODO
-        return null;
+        throw new RuntimeException("not implemented");
     }
 
     /**
@@ -55,6 +55,6 @@ public class TransformExercises {
      */
     public int countChar(String text, char c) {
         // TODO
-        return 0;
+        throw new RuntimeException("not implemented");
     }
 }
