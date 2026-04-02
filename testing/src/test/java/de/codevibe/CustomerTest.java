@@ -23,6 +23,7 @@ class CustomerTest {
         assertEquals("Jane", customer.getFirstName());
         assertEquals("Doe", customer.getLastName());
         assertEquals(30, customer.getAge());
+
     }
 
     @Test
