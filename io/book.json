@@ -1,0 +1,9 @@
+[ {
+  "edition" : 4,
+  "isbn" : "123-3345",
+  "title" : "Blah"
+}, {
+  "edition" : 4,
+  "isbn" : "123-3345",
+  "title" : "Blaha"
+} ]
