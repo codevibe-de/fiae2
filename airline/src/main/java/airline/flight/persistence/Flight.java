@@ -46,7 +46,7 @@ public class Flight {
      * @throws SeatNotAvailableException
      */
     public int getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
-
+        
         return -1;
     }
 
