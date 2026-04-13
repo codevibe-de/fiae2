@@ -32,7 +32,7 @@ public class Customer {
     }
 
     public String getFullName() {
-        return firstName + " " + lastName;
+        return firstName +" "+ lastName;
     }
 
     public boolean isAdult() {
@@ -40,7 +40,7 @@ public class Customer {
     }
 
     public void deposit(double amount) {
-        balance = balance + amount;
+        balance += amount;
     }
 
     public double getBalance() {
@@ -48,13 +48,10 @@ public class Customer {
     }
 
     public boolean withdraw(double amount) {
-
         if (amount > balance) {
             return false;
         }
-        else {
-            balance = balance - amount;
-            return true;
-        }
+        else balance -= amount;
+        return true;
     }
 }

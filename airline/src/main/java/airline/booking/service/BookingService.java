@@ -1,28 +1,31 @@
 package airline.booking.service;
 
-import airline.booking.persistence.BookingJsonRepository;
-import airline.flight.service.SeatNotAvailableException;
+import airline.booking.persistence.Booking;
+import airline.booking.persistence.BookingRepository;
+import airline.flight.persistence.SeatType;
 
 public class BookingService {
 
-    private final BookingJsonRepository repository;
+    private final BookingRepository repository;
 
-    public BookingService(BookingJsonRepository repository) {
+    public BookingService(BookingRepository repository) {
         this.repository = repository;
     }
 
+
     /**
-     * Tries to book the given seat for a passenger. Throws SeatNotAvailableException if already taken
+     * Tries to book a seat for a passenger. Throws SeatNotAvailableException if no seat is available for the
+     * given criteria.
      *
      * @throws SeatNotAvailableException
      */
-    public void bookSeat(String flightNumber, int seatNumber, String passengerLastName) {
+    public Booking bookSeat(String flightNumber, SeatType seatType, Boolean atWindow, String passengerLastName) {
         // todo
+        return null;
     }
 
 
     public void printPassengerList(String flightNumber) {
-
     }
 
 }

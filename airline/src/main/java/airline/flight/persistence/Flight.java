@@ -1,21 +1,19 @@
 package airline.flight.persistence;
 
-import airline.flight.service.SeatNotAvailableException;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Flight {
 
     private final String number;
-    private final String departsFrom;
-    private final String arrivesAt;
+    private final String departureAirportCode;
+    private final String arrivalAirportCode;
     private final List<Seat> seats;
 
-    public Flight(String number, String departsFrom, String arrivesAt) {
+    public Flight(String number, String departureAirportCode, String arrivalAirportCode) {
         this.number = number;
-        this.departsFrom = departsFrom;
-        this.arrivesAt = arrivesAt;
+        this.departureAirportCode = departureAirportCode;
+        this.arrivalAirportCode = arrivalAirportCode;
         this.seats = new ArrayList<>();
     }
 
@@ -35,20 +33,35 @@ public class Flight {
             Seat seat = new Seat(i, atWindow, type);
             this.seats.add(seat);
         }
+    public String getDepartureAirportCode() {
+        return departureAirportCode;
+    }
+
+    public String getArrivalAirportCode() {
+        return arrivalAirportCode;
+    }
+
+
+
+
+    /**
+     * Returns an unmodifiable list of all seats for this flight.
+     */
+    public List<Seat> getSeats() {
+        // todo
+        return null;
     }
 
 
     /**
-     * Tries to find a seat matching the given criteria. Throws SeatNotAvailableException if none found
+     * Returns a list of all seats matching the given criteria, which might be an empty list.
      *
      * @param seatType
      * @param atWindow
-     * @throws SeatNotAvailableException
      */
-    public int getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
-        
-        return -1;
+    public List<Seat> getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
+        // todo
+        return null;
     }
-
 
 }

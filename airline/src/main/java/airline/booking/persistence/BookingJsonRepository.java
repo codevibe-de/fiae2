@@ -1,11 +1,19 @@
 package airline.booking.persistence;
 
-public class BookingJsonRepository {
+import java.util.List;
 
-    // save(Booking)
+public class BookingJsonRepository implements BookingRepository {
 
-    // findByFlightNumber(String flightNumber)
+    @Override
+    public Booking save(Booking booking) {
+        // todo
+        return null;
+    }
 
-    // delete(Booking)
+    @Override
+    public List<Booking> findByFlightNumber(String flightNumber) {
+        // todo
+        return List.of();
+    }
 
 }
