@@ -1,33 +1,39 @@
 package airline.flight.service;
-
 import airline.flight.persistence.Flight;
-import airline.flight.persistence.FlightJsonRepository;
+import airline.flight.persistence.FlightNotAvailableException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlightService {
 
-    private final FlightJsonRepository repository;
+    private List<Flight> flights = new ArrayList<>();
 
-    public FlightService(FlightJsonRepository repository) {
-        this.repository = repository;
-    }
-
-
-    // - Eingaben prüfen
-    // - Flight speichern
     public void addFlight(Flight flight) {
-        // 1. Gibt es diesen Flug schon? => Fehler!
-        // 2. Flug speichern
+        for (Flight f : flights) {
+            if (f.getNumber().equals(flight.getNumber())) {
+                throw new IllegalArgumentException("Flight already exists: " + flight.getNumber());
+            }
+        }
+        flights.add(flight);
     }
-
 
     public List<Flight> getAllFlights() {
-        return null;
+        return new ArrayList<>(flights); // defensive copy
     }
 
-
     public void cancelFlight(String flightNumber) {
+        Flight toRemove = null;
+        for (Flight f : flights) {
+            if (f.getNumber().equals(flightNumber)) {
+                toRemove = f;
+                break;
+            }
+        }
+        if (toRemove == null) {
+            throw new FlightNotAvailableException("Flight not found: " + flightNumber);
+        }
+        flights.remove(toRemove);
     }
 
 }

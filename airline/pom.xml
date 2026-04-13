@@ -13,8 +13,8 @@
     <artifactId>fiae-airline</artifactId>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -29,6 +29,22 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>6.0.3</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.15.1</version>
+        </dependency>
+        <dependency>
+            <groupId>tools.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

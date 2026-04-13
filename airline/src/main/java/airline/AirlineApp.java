@@ -1,11 +1,16 @@
 package airline;
 
 import airline.flight.persistence.Flight;
+import airline.flight.persistence.FlightJsonRepository;
 import airline.flight.persistence.SeatType;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AirlineApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Flight fraToRome = new Flight("LF001", "FRA", "FCO");
         fraToRome.addSeats(1, 10, SeatType.FIRST);
         fraToRome.addSeats(11, 20, SeatType.BUSINESS);
@@ -26,5 +31,14 @@ public class AirlineApp {
 
         // All seats booked!
         fraToRome.printPassengerList();
+
+        //save flight
+        FlightJsonRepository repo = new FlightJsonRepository();
+        List<Flight> flights = new ArrayList<>();
+        flights.add(fraToRome);
+
+        repo.saveFlights("C:\\Data\\Flights", "flights.json", flights);
+
+
     }
 }
