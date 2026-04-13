@@ -1,12 +1,17 @@
 package airline;
 
 import airline.flight.persistence.Flight;
+import airline.flight.persistence.FlightJsonRepository;
 import airline.seat.persistence.SeatType;
 
 public class AirlineApp {
 
     public static void main(String[] args) {
         Flight fraToRome = new Flight("LF001", "FRA", "FCO");
+        Flight fraToRome1 = new Flight("LF001", "FRA", "FCO");
+        FlightJsonRepository.save(fraToRome);
+        FlightJsonRepository.save(fraToRome1);
+        System.out.println(FlightJsonRepository.findAll());
         fraToRome.addSeats(1, 10, SeatType.FIRST);
         fraToRome.addSeats(11, 20, SeatType.BUSINESS);
         fraToRome.addSeats(31, 200, SeatType.ECONOMY);

@@ -1,11 +1,12 @@
 package airline.flight.persistence;
 
-import airline.seat.persistence.Seat;
-import airline.seat.service.SeatNotAvailableException;
-import airline.seat.persistence.SeatType;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import airline.seat.persistence.Seat;
+import airline.seat.persistence.SeatType;
+import airline.seat.service.SeatNotAvailableException;
 
 public class Flight {
 
@@ -13,12 +14,15 @@ public class Flight {
     private final String departsFrom;
     private final String arrivesAt;
     private final List<Seat> seats;
+    private final HashMap<Integer, String> passengerMap;
 
     public Flight(String number, String departsFrom, String arrivesAt) {
         this.number = number;
         this.departsFrom = departsFrom;
         this.arrivesAt = arrivesAt;
         this.seats = new ArrayList<>();
+        this.passengerMap = new HashMap<>();
+
     }
 
 
@@ -35,7 +39,14 @@ public class Flight {
      * @param type
      */
     public void addSeats(int startNumber, int count, SeatType type) {
-        // todo
+
+        for (int i = 0; i <= count; i++) {
+            if (i % 6 == 0) {
+                this.seats.add(new Seat(startNumber + i, true, type));
+            } else {
+                this.seats.add(new Seat(startNumber + i, false, type));
+            }
+        }
     }
 
 
@@ -47,7 +58,14 @@ public class Flight {
      * @throws SeatNotAvailableException
      */
     public int getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
-        // todo
+
+        for (Seat seat : this.seats) {
+            if (seat.getType() == seatType && seat.isAtWindow() == atWindow) {
+                return seat.getNumber();
+            } else {
+                return -1;
+            }
+        }
         return -1;
     }
 
@@ -60,12 +78,19 @@ public class Flight {
      * @throws SeatNotAvailableException
      */
     public void bookSeat(int seatNumber, String passengerLastName) {
-        // todo
+    for (int i = 0; i < this.seats.size(); i++) {
+        if (this.seats.get(i).getNumber() == seatNumber) {
+            this.seats.remove(i);
+            this.passengerMap.put(seatNumber, passengerLastName);
+            return;
+        }
     }
+    throw new SeatNotAvailableException("Seat already taken or not available.");
+}
 
 
     public void printPassengerList() {
-
+        System.out.println(this.passengerMap);
     }
 
 }
