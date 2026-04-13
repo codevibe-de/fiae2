@@ -32,7 +32,7 @@ public class Customer {
     }
 
     public String getFullName() {
-        return firstName + " " + lastName;
+        return firstName +" "+ lastName;
     }
 
     public boolean isAdult() {
@@ -51,7 +51,7 @@ public class Customer {
         if (amount > balance) {
             return false;
         }
-        balance -= amount;
+        else balance -= amount;
         return true;
     }
 }
