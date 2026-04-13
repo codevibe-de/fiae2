@@ -19,21 +19,22 @@ public class Flight {
         this.seats = new ArrayList<>();
     }
 
-
     public String getNumber() {
         return number;
     }
 
-
-    /**
-     * Adds a number of seats to this flight. Every 6th seat is at a window.
-     *
-     * @param startNumber
-     * @param count
-     * @param type
-     */
     public void addSeats(int startNumber, int count, SeatType type) {
-        // todo
+        boolean atWindow = false;
+        for(int i = startNumber; i <= count; i++) {
+            if (i % 6 == 0){
+                atWindow = true;
+            }
+            else {
+                atWindow = false;
+            }
+            Seat seat = new Seat(i, atWindow, type);
+            this.seats.add(seat);
+        }
     }
 
 
@@ -45,7 +46,7 @@ public class Flight {
      * @throws SeatNotAvailableException
      */
     public int getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
-        // todo
+
         return -1;
     }
 
