@@ -1,10 +1,30 @@
 package airline.flight.persistence;
 
-public class FlightJsonRepository {
+import java.util.List;
 
-    // save(Flight)
-    // findAll() -> List<Flight>
-    // findByNumber(String number)
-    // deleteAll()
+public class FlightJsonRepository implements FlightRepository {
+
+    @Override
+    public Flight save(Flight flight) {
+        // todo
+        return null;
+    }
+
+    @Override
+    public List<Flight> findAll() {
+        // todo
+        return List.of();
+    }
+
+    @Override
+    public Flight findByNumber(String number) {
+        // todo
+        return null;
+    }
+
+    @Override
+    public void deleteAll() {
+        // todo
+    }
 
 }

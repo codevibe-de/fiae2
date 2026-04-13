@@ -1,35 +1,41 @@
 ## Einstieg
 
-Implementiere alle Code-Stellen, an denen aktuell noch
-ein `// todo` steht.
+### FlightServiceTest
 
-Hinweis: Die "TODO" Tool-View von Intellij listet solche
-Stellen auf!
+Startet mit der Klasse `FlightServiceTest` und implementiere die Service-Methoden so, dass die Tests grün werden.
 
-## Aufbau
+Das erfordert allerdings auch eine erste Implementierung des `FlightRepository` z.B. über das
+bereits vorhandene `FlightJsonRepository`. Du kannst alternativ auch eine einfachere Variante als
+neue Implementierung des `FlightRepository` erstellen, z.B. `FlightInMemoryRepository`,
+das die Daten einfach in einer Liste hält.
 
-### Anzeige von Details
+### BookingServiceTest
 
-Über die Eingabeaufforderung
-sollen alle Flüge angezeigt werden können.
+Schreibe nun einen Test, der die Buchung eines Platzes testet -- und implementiere dann die
+notwendigen Methoden im `BookingService` damit der Test grün wird.
 
-Nach Wahl eines Flugs werden verfügbare Sitzarten und deren Anzahl angezeigt.
+Dazu braucht es auch wiederum eine `BookingRepository` Instanz, gleiche Spiel wie oben.
 
-### Buchung
+## Fortgeschrittene Features
 
-Über die Eingabeaufforderung kann für einen gewählten Flug unter Angabe 
-eines Namens ein oder mehrere Sitze gebucht werden.
+### Weitere Entitäten
 
-### Planes, Cities, Routes
+Erweitere das System um zusätzliche Entitäten wie:
 
-Nun soll das System um das Management von Flugzeugen (welche verfügbare Sitze vorgeben) 
-und Städten (von/zu) sowie Routen (ein Flug bedient eine Route, die von Stadt X zu Y fliegt) erweitert werden.
+- Route
+- Airport
+- Plane
 
-### Datenimport
+### Tabellarische Ausgabe
 
-Aus CSV Dateien sollen Daten gelesen werden, die das System zumindest in Teilen initialisieren (Städte, Routen, Flüge..)
+Daten der Anwendung (z. B. gebuchte Sitze pro Flug) können als hübsche ASCII Tabellen zur Visualisierung
+des Systemzustands ausgegeben werden.
 
-### tabellarische Ausgabe
+### HttpServer
 
-Daten der Anwendung (zB gebuchte Sitze pro Flug) können als hübsche ASCII Tabellen zur Visualisierung 
-des Systemzustands ausgegeben werden
+Beginne die Arbeit an der API des Systems, wie z.B.
+
+- Erzeugung eines Flugs über einen `POST /flights` Endpoint
+- Buchung eines Sitzes über einen `POST /bookings` Endpoint
+- Abfrage aller Flüge über einen `GET /flights` Endpoint
+- 

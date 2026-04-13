@@ -1,4 +1,4 @@
-package airline.flight.service;
+package airline.booking.service;
 
 public class SeatNotAvailableException extends RuntimeException {
 
