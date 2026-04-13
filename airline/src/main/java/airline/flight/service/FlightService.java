@@ -1,9 +1,9 @@
 package airline.flight.service;
 
+import java.util.List;
+
 import airline.flight.persistence.Flight;
 import airline.flight.persistence.FlightRepository;
-
-import java.util.List;
 
 public class FlightService {
 
@@ -15,6 +15,14 @@ public class FlightService {
 
 
     public Flight createFlight(String departureAirportCode, String arrivalAirportCode) {
+
+        String flightNumber = String.valueOf(getAllFlights().size() + 1);
+
+        Flight flight = new Flight(flightNumber, departureAirportCode, arrivalAirportCode);
+
+        repository.save(flight);
+
+
         // todo
         // - generate flight number
         // - create Flight instance
@@ -24,8 +32,9 @@ public class FlightService {
 
 
     public List<Flight> getAllFlights() {
-        // todo
-        return null;
+
+        List<Flight> flightList = repository.findAll();
+        return flightList;
     }
 
 

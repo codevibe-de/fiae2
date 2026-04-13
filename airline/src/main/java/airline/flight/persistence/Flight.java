@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Flight {
 
-    private final String number;
-    private final String departureAirportCode;
-    private final String arrivalAirportCode;
-    private final List<Seat> seats;
+    private String number;
+    private String departureAirportCode;
+    private String arrivalAirportCode;
+    private List<Seat> seats;
 
     public Flight(String number, String departureAirportCode, String arrivalAirportCode) {
         this.number = number;
@@ -17,6 +17,9 @@ public class Flight {
         this.seats = new ArrayList<>();
     }
 
+    public Flight() {
+        
+    }
 
     public String getNumber() {
         return number;
@@ -28,6 +31,18 @@ public class Flight {
 
     public String getArrivalAirportCode() {
         return arrivalAirportCode;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setDepartureAirportCode(String departureAirportCode) {
+        this.departureAirportCode = departureAirportCode;
+    }
+
+    public void setArrivalAirportCode(String arrivalAirportCode) {
+        this.arrivalAirportCode = arrivalAirportCode;
     }
 
     /**

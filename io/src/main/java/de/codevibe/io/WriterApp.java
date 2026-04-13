@@ -50,5 +50,5 @@ public class WriterApp {
     } catch (Exception e) {
         return rawJson; // Fallback
     }
-}
+    }
 }

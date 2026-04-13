@@ -1,13 +1,14 @@
 package airline.flight.service;
 
-import airline.flight.persistence.Flight;
-import airline.flight.persistence.FlightJsonRepository;
-import airline.flight.persistence.FlightRepository;
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import airline.flight.persistence.Flight;
+import airline.flight.persistence.FlightJsonRepository;
+import airline.flight.persistence.FlightRepository;
 
 class FlightServiceTest {
 
