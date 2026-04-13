@@ -17,34 +17,45 @@ public class FlightService {
     public Flight createFlight(String departureAirportCode, String arrivalAirportCode) {
 
         String flightNumber = String.valueOf(getAllFlights().size() + 1);
+        String flightNumberStart = "LH000";
+        flightNumberStart = flightNumberStart.substring(0, 5 - flightNumber.length());
+        String completeNumber = flightNumberStart + flightNumber;
 
-        Flight flight = new Flight(flightNumber, departureAirportCode, arrivalAirportCode);
+        Flight flight = new Flight(completeNumber, departureAirportCode, arrivalAirportCode);
 
         repository.save(flight);
-
-
-        // todo
-        // - generate flight number
-        // - create Flight instance
-        // - save Flight via repository
-        return null;
+        return flight;
     }
 
 
     public List<Flight> getAllFlights() {
 
         List<Flight> flightList = repository.findAll();
+        System.out.println(flightList);
         return flightList;
+
     }
 
 
     public Flight getFlight(String flightNumber) {
-        // todo
+
+        Flight flight = repository.findByNumber(flightNumber);
+
+        if (flight != null) {
+            return flight;
+        }
+        
         return null;
     }
 
 
     public void cancelFlight(String flightNumber) {
+
+        List<Flight> flightList = repository.findAll();
+
+        flightList.removeIf(flight -> flight.getNumber().equals(flightNumber));
+
+        repository.save(flightList);
     }
 
 }

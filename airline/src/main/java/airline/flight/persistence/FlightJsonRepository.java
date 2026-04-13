@@ -8,32 +8,48 @@ import airline.io.JSONWriter;
 
 public class FlightJsonRepository implements FlightRepository {
 
+    File fileName = new File("flights.json");
+    File directoryPath = new File("C:\\Data\\Airline\\JSONs");
+
     @Override
     public Flight save(Flight flight) {
-        File fileName = new File("flights.json");
-        File directoryPath = new File("C:\\Data\\Airline\\JSONs");
-        JSONWriter.writer(directoryPath, fileName, flight, false);
+        List<Flight> flightList = JSONReader.reader(directoryPath, fileName);
+
+        flightList.add(flight);
+
+        JSONWriter.saveObjectToJSON(directoryPath, fileName, flightList, false, true);
+        return null;
+    }
+
+    @Override
+    public Flight save(List<Flight> flightList) {
+        JSONWriter.saveObjectToJSON(directoryPath, fileName, flightList, false, true);
         return null;
     }
 
     @Override
     public List<Flight> findAll() {
-        File fileName = new File("flights.json");
-        File directoryPath = new File("C:\\Data\\Airline\\JSONs");
         List<Flight> flightList = JSONReader.reader(directoryPath, fileName);
-        // todo
         return flightList;
     }
 
     @Override
     public Flight findByNumber(String number) {
-        // todo
+        
+        List<Flight> flightList = findAll();
+
+        for (Flight flight : flightList) {
+            if (flight.getNumber().equals(number)) {
+                return flight;
+            }
+        }
+
         return null;
     }
 
     @Override
     public void deleteAll() {
-        // todo
+        JSONWriter.deleteJSONContent(directoryPath, fileName);
     }
 
 }

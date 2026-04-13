@@ -26,16 +26,25 @@ class FlightServiceTest {
         // given
         FlightService service = new FlightService(flightRepository);
         Flight flight = service.createFlight("DUS", "CGN");
+        Flight flight2 = service.createFlight("FRA", "JFK");
 
         // when
         List<Flight> allFlights = service.getAllFlights();
 
         // then
         Assertions.assertNotNull(allFlights);
-        Assertions.assertEquals(1, allFlights.size());
+        Assertions.assertEquals(2, allFlights.size());
         Flight firstFlight = allFlights.getFirst();
         Assertions.assertEquals("LH001", firstFlight.getNumber());
         Assertions.assertEquals("DUS", firstFlight.getDepartureAirportCode());
         Assertions.assertEquals("CGN", firstFlight.getArrivalAirportCode());
+
+        Assertions.assertEquals(flight.getNumber(), service.getFlight("LH001").getNumber());
+        
+        service.cancelFlight("LH001");
+
+        allFlights = service.getAllFlights();
+
+        Assertions.assertEquals(1, allFlights.size());
     }
 }
