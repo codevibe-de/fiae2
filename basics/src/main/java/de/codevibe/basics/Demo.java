@@ -29,11 +29,13 @@ class Tralala extends X implements Y, Z {
 
     @Override
     void foo1() {
-        this.data;
     }
 
     @Override
     public void foo2() {
     }
 
+    @Override
+    public void foo3() {
+    }
 }
