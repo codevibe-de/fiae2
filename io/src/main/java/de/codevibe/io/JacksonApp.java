@@ -1,32 +1,25 @@
-package de.codevibe.io;
+package main.java.de.codevibe.io;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.List;
+import java.nio.file.Files;
 
 public class JacksonApp {
 
     public static void main(String[] args) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Book> books = List.of(
-                new Book("123-3345", "Blah", 4, 8.99f, true),
-                new Book("123-3345", "Blah", 4, 8.99f, true)
-        );
-        String json = mapper
-                .writerWithDefaultPrettyPrinter()
-                .writeValueAsString(books);
+        Book book = new Book("123-3345", "Blah");
+        String json = mapper.writeValueAsString(book);
         System.out.println(json);
+        File file = new File("io/src/main/java/de/codevibe/io/Book/book.json");
+        file.createNewFile();
+        file.mkdir();
+        Files.write(file.toPath(), json.getBytes());
+//        File file2 = new File("Book");
+//        file2.mkdir();
 
-        TypeReference<List<Book>> booksListTypeRef = new TypeReference<>() {
-        };
-        List<Book> books1 = mapper.readValue(json, booksListTypeRef);
-
-        // File.listFiles() -- alle Dateien in einem Ordner
-        // ObjectMapper.readValue() -- pro Datei eine Java Instanz erzeugen
     }
 }
 
@@ -34,43 +27,30 @@ public class JacksonApp {
 class Book {
     private String isbn;
     private String title;
-    private int edition;
-    private float price;
-    private boolean bestseller;
 
-    @JsonCreator
-    public Book(
-            @JsonProperty("isbn") String isbn,
-            @JsonProperty("title") String title,
-            @JsonProperty("edition") int edition,
-            @JsonProperty("price") float price,
-            @JsonProperty("bestseller") boolean bestseller
-    ) {
+    public Book() {
+        // benötigt für Jackson beim Laden
+    }
+
+    public Book(String isbn, String title) {
         this.isbn = isbn;
         this.title = title;
-        this.edition = edition;
-        this.price = price;
-        this.bestseller = bestseller;
-    }
-
-    public int getEdition() {
-        return edition;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public boolean isBestseller() {
-        return bestseller;
     }
 
     public String getIsbn() {
         return isbn;
     }
 
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 }
