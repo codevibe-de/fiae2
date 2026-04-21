@@ -51,9 +51,8 @@ public class Customer {
         if (amount > balance) {
             return false;
         } else {
-            balance = balance - amount;
+            balance -= amount;
         }
-        else balance -= amount;
         return true;
     }
 }

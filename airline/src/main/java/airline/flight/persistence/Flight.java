@@ -3,6 +3,8 @@ package airline.flight.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import airline.booking.service.SeatNotAvailableException;
+
 public class Flight {
 
     private String number;
@@ -53,7 +55,13 @@ public class Flight {
      * @param type
      */
     void addSeats(int startNumber, int count, SeatType type) {
-        // todo
+        for (int i = 0; i <= count; i++) {
+            if (i % 6 == 0) {
+                this.seats.add(new Seat(startNumber + i, true, type));
+            } else {
+                this.seats.add(new Seat(startNumber + i, false, type));
+            }
+        }
     }
 
 
@@ -61,8 +69,7 @@ public class Flight {
      * Returns an unmodifiable list of all seats for this flight.
      */
     public List<Seat> getSeats() {
-        // todo
-        return null;
+        return this.seats;
     }
 
 
@@ -72,9 +79,15 @@ public class Flight {
      * @param seatType
      * @param atWindow
      */
-    public List<Seat> getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
-        // todo
-        return null;
+    public int getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
+        for (Seat seat : this.seats) {
+            if (seat.getType() == seatType && seat.isAtWindow() == atWindow) {
+                return seat.getNumber();
+            } else {
+                throw new SeatNotAvailableException("Seat not found.");
+            }
+        }
+        return -1;
     }
 
 }
