@@ -14,7 +14,7 @@ public class SimpleHttpServerApp {
     public static void main(String[] args) throws IOException {
         System.out.println("Starting HTTP server");
 
-        HttpServer httpServer = HttpServer.create(new InetSocketAddress(8080), 0);
+        HttpServer httpServer = HttpServer.create(new InetSocketAddress(443), 0);
         httpServer.createContext("/greeting", new GreetingHandler());
         httpServer.start();
 

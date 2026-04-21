@@ -7,14 +7,13 @@ import java.net.http.HttpResponse;
 
 public class HttpClientApp {
 
-
     public static void main(String[] args) throws Exception {
         // 1. Client erstellen
         HttpClient client = HttpClient.newHttpClient();
 
         // 2. Request bauen
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://www.example.com/"))
+                .uri(URI.create("http://10.228.129.250:443/greeting"))
                 .GET()
                 .build();
 
