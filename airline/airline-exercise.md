@@ -38,4 +38,11 @@ Beginne die Arbeit an der API des Systems, wie z.B.
 - Erzeugung eines Flugs über einen `POST /flights` Endpoint
 - Buchung eines Sitzes über einen `POST /bookings` Endpoint
 - Abfrage aller Flüge über einen `GET /flights` Endpoint
-- 
+
+### HttpClient
+
+Schreibe einen Client, der die API eines anderen Rechners nutzt, um z.B. alle Flüge zu laden.
+
+Und dann sogar, um eine konkrete Buchung zu machen. D.h., der Server eines anderen spielt Airline-Server und stellt
+Daten und Dienste zur Verfügung. Dein Rechner nutzt diesen als "Reisebüro-Client", indem über eine einfache Oberfläche (
+Terminal oder Swing) diese Daten angezeigt und Dienste genutzt werden (jeweils über HTTP Aufrufe).
