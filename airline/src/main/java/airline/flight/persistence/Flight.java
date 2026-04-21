@@ -6,16 +6,26 @@ import java.util.List;
 
 public class Flight {
 
-    private final String number;
-    private final String departsFrom;
-    private final String arrivesAt;
-    private final List<Seat> seats;
+    private  String number;
+    private String departsFrom;
+    private  String arrivesAt;
+    private  List<Seat> seats;
 
     public Flight(String number, String departsFrom, String arrivesAt) {
         this.number = number;
         this.departsFrom = departsFrom;
         this.arrivesAt = arrivesAt;
         this.seats = new ArrayList<>();
+    }
+
+    public Flight(String number, String departsFrom, String arrivesAt, List<Seat> seats) {
+        this.number = number;
+        this.departsFrom = departsFrom;
+        this.arrivesAt = arrivesAt;
+        this.seats = seats;
+    }
+
+    public Flight() {
     }
 
     public String getNumber() {
@@ -95,4 +105,19 @@ public class Flight {
         return seats;
     }
 
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setDepartsFrom(String departsFrom) {
+        this.departsFrom = departsFrom;
+    }
+
+    public void setArrivesAt(String arrivesAt) {
+        this.arrivesAt = arrivesAt;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
 }

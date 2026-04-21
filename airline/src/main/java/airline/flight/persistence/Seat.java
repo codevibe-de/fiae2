@@ -13,6 +13,10 @@ public class Seat {
         this.type = type;
         this.reserved = false;
     }
+
+    public Seat() {
+    }
+
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
         this.passengerName = passengerName;

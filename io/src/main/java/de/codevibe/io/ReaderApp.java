@@ -1,25 +1,15 @@
 package de.codevibe.io;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 
 public class ReaderApp {
 
     public static void main(String[] args) throws IOException {
-
-        try {
-            InputStream auslesen = new FileInputStream("blah.txt");
-            byte[] bytes = new byte[1024];
-            auslesen.read(bytes);
-            String s = new String(bytes, StandardCharsets.UTF_8);
-            System.out.println(s);
-        } catch (FileNotFoundException e) {
-            System.out.println(("Konnte nicht gelesen werden") + e.getMessage());
-        } catch (IOException e) {
-            System.out.println(("Konnte nicht gelesen werden") + e.getMessage());
-        }
-
+        Reader reader = new FileReader("blah.txt", StandardCharsets.UTF_8);
     }
+
 }
-
-

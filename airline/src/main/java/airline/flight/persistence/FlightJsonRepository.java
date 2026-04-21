@@ -26,14 +26,12 @@ public class FlightJsonRepository {
 
     public List<Flight> loadFlights(String directory, String filename) throws IOException {
         File file = new File(directory, filename);
-        return mapper.readValue(file,
+        return mapper.readValue(
+                file,
                 mapper.getTypeFactory().constructCollectionType(List.class, Flight.class)
         );
     }
 
-    public void loadFlights(String directory, String filename, List<Flight> flights) throws IOException{
-
-    }
 }
 
 

@@ -1,26 +1,32 @@
 package de.codevibe.io;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+import java.util.List;
 
 public class JacksonApp {
 
     public static void main(String[] args) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Book book = new Book("123-3345", "Blah");
-        Book book2 = new Book("125-6645", "BlahBlah");
-        String json = mapper.writeValueAsString(book);
+        List<Book> books = List.of(
+                new Book("123-3345", "Blah", 4, 8.99f, true),
+                new Book("123-3345", "Blah", 4, 8.99f, true)
+        );
+        String json = mapper
+                .writerWithDefaultPrettyPrinter()
+                .writeValueAsString(books);
         System.out.println(json);
 
-        book.bookJsonSave("C:\\Data\\Library", "book.json");
-        book2.bookJsonSave("C:\\Data\\Library", "book.json");
-        //book.bookJsonLoad("C:\\Data\\Library", "book.json");
+        TypeReference<List<Book>> booksListTypeRef = new TypeReference<>() {
+        };
+        List<Book> books1 = mapper.readValue(json, booksListTypeRef);
 
-
+        // File.listFiles() -- alle Dateien in einem Ordner
+        // ObjectMapper.readValue() -- pro Datei eine Java Instanz erzeugen
     }
 }
 
@@ -28,50 +34,43 @@ public class JacksonApp {
 class Book {
     private String isbn;
     private String title;
+    private int edition;
+    private float price;
+    private boolean bestseller;
 
-    public void bookJsonSave(String directory, String filename) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-    // Datei und den Dateinamen erzeugen
-        File output = new File(directory, filename);
-    //Ordner anlegen falls noch nicht vorhanden
-        output.getParentFile().mkdirs();
-    //Output wird jetzt gespeichert
-        mapper.writeValue(output, this);
-    //Ausgabe bestätigen
-        System.out.println("Book.json wurde gespeichert! " + output.getAbsolutePath());
-    }
-
-    public void bookJsonLoad(String directory, String filename) throws IOException {
-        File file = new File(directory, filename);
-    //Lesen und Encoden der Datei
-        String json = Files.readString(file.toPath(), StandardCharsets.UTF_8);
-    //Ausgabe bestätigen
-        System.out.println("Hier ist dein JSON" + json);
-    }
-
-    public Book() {
-        // benötigt für Jackson beim Laden
-    }
-
-    public Book(String isbn, String title) {
+    @JsonCreator
+    public Book(
+            @JsonProperty("isbn") String isbn,
+            @JsonProperty("title") String title,
+            @JsonProperty("edition") int edition,
+            @JsonProperty("price") float price,
+            @JsonProperty("bestseller") boolean bestseller
+    ) {
         this.isbn = isbn;
         this.title = title;
+        this.edition = edition;
+        this.price = price;
+        this.bestseller = bestseller;
+    }
+
+    public int getEdition() {
+        return edition;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public boolean isBestseller() {
+        return bestseller;
     }
 
     public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
 }

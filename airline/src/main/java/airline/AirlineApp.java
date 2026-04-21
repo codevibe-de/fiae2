@@ -1,5 +1,7 @@
 package airline;
 
+import airline.booking.persistence.Booking;
+import airline.booking.persistence.BookingJsonRepository;
 import airline.flight.persistence.Flight;
 import airline.flight.persistence.FlightJsonRepository;
 import airline.flight.persistence.SeatType;
@@ -37,8 +39,20 @@ public class AirlineApp {
         List<Flight> flights = new ArrayList<>();
         flights.add(fraToRome);
 
-        repo.saveFlights("C:\\Data\\Flights", "flights.json", flights);
+        BookingJsonRepository repoBook = new BookingJsonRepository();
+        List<Booking> bookings = new ArrayList<>();
 
+        repo.saveFlights("C:\\Data\\Flights", "flights.json", flights);
+        repoBook.saveBookings("C:\\Data\\Bookings", "bookings.json", bookings);
+
+        List<Flight> loadedFlights =
+                repo.loadFlights("C:\\Data\\Flights", "flights.json");
+
+        System.out.println("Loaded flights: " + loadedFlights.size());
+        for (Flight f : loadedFlights) {
+            System.out.println("Flight " + f.getNumber());
+            f.printPassengerList();
+        }
 
     }
 }
