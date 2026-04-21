@@ -44,12 +44,9 @@ public class Flight {
     }
 
 
-    /**
-     * Returns an unmodifiable list of all seats for this flight.
-     */
+
     public List<Seat> getSeats() {
-        // todo
-        return null;
+        return seats;
     }
 
 
@@ -60,7 +57,7 @@ public class Flight {
      * @param atWindow
      */
     public List<Seat> getAvailableSeatNumber(SeatType seatType, Boolean atWindow) {
-        // todo
+
         return null;
     }
 
