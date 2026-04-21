@@ -23,8 +23,8 @@ public class Flight {
 
     public void addSeats(int startNumber, int count, SeatType type) {
         boolean atWindow = false;
-        for(int i = startNumber; i <= count; i++) {
-            if (i % 6 == 0){
+        for (int i = startNumber; i <= count; i++) {
+            if (i % 6 == 0) {
                 atWindow = true;
             }
             else {
@@ -33,6 +33,8 @@ public class Flight {
             Seat seat = new Seat(i, atWindow, type);
             this.seats.add(seat);
         }
+    }
+
     public String getDepartureAirportCode() {
         return departureAirportCode;
     }
@@ -40,8 +42,6 @@ public class Flight {
     public String getArrivalAirportCode() {
         return arrivalAirportCode;
     }
-
-
 
 
     /**
